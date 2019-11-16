@@ -78,7 +78,10 @@ public abstract class Employe {
 	
 	public void augmenterSalaire(Double pourcentageAugm) {
 		salaire = (salaire * pourcentageAugm) + salaire;
-		
+		//this.salaire = this.salaire * ( 1 + pourcentageAugm);
+		// ---  attention aux versions avec setSalaire() si setSalaire() se complexifie. ----
+		//setSalaire(this.salaire * ( 1 + pourcentageAugm));
+		//setSalaire(getSalaire() * ( 1 + pourcentageAugm));
 	}
 	
 	
@@ -112,6 +115,14 @@ public abstract class Employe {
 		return dateEmbauche;
 	}
 
+	public Double getSalaire() {
+		return salaire;
+	}
+
+	public void setSalaire(Double salaire) {
+		this.salaire = salaire;
+	}
+	
 	/**
 	 * @param dateEmbauche the dateEmbauche to set
 	 * @throws Exception 
@@ -122,15 +133,6 @@ public abstract class Employe {
 		}
 		this.dateEmbauche = dateEmbauche;
 	}
-
-	public Double getSalaire() {
-		return salaire;
-	}
-
-	public void setSalaire(Double salaire) {
-		this.salaire = salaire;
-	}
-	
 
 
 }
